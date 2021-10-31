@@ -18,7 +18,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     public Page<Product> findByDesignContains(@Param(value = "mc") String mc, Pageable pageable);
 
     public List<Product> findBycategory(@Param(value = "categ") String category);
-    public Page<Product> findBycategoryContains(@Param(value="mc") String category,Pageable pageable) ;
+
+    public Page<Product> findBycategoryContains(@Param(value = "mc") String category, Pageable pageable);
 
 
 }

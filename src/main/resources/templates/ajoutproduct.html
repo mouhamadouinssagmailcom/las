@@ -115,7 +115,9 @@
                                        th:value="${product.available}">
                                 <span style="color: red;" th:errors="${product.available}"></span>
                             </div>
-
+                            <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
+                                <a th:href="@{product/new}"><i class="fas fa-plus fa-2x"></i></a>
+                            </button>
                         </div>
                         <br>
                         <div class="right-w3l col-md-6">
