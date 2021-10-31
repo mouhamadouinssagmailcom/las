@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta charset="utf-8">
+<link th:rel="stylesheet"
+      th:href="@{webjars/bootstrap/4.1.3/css/bootstrap.min.css} "/>
+<title>Insert title here</title>
+<body>
+
+<div class="container mt-5">
+  <div class="col-md-12">
+    <div class="card-header">FORMULAIRE D'ENREGISTREMENT DU
+      PATIENT
+    </div>
+    <div class="card-body">
+
+      <div class="form-group">
+        <label>ID:</label> <label th:text="${product.id} "></label></strong>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Quantity:</label> <input type="text"
+                                                              class="form-control" name="qyt"
+                                                              th:text="${product.qyt}"/>
+      </div>
+      er
+      <div class="form-group">
+        <label class="control-label">Designation:</label> <label type="text"
+                                                                 class="form-control" name="design"
+                                                                 th:text="${product.design}"/>
+      </div>
+
+
+      <div class="form-group">
+        <label class="control-label">Nom du marque:</label> <input
+              type="text" class="form-control" name="marque"
+              th:text="${product.marque}"/>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Description:</label> <label type="text"
+                                                                 class="form-control" name="desc"
+                                                                 th:text="${product.desc}"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Details products:</label> <label type="text"
+                                                                      class="form-control" name="detail"
+                                                                      th:text="${product.detail}"/>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Prix:</label> <label
+              type="text" class="form-control" name="prix"
+              th:text="${product.prix}"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Etat stock:</label> <input
+              type="text" class="form-control" name="active"
+              th:text="${product.active}"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Type de category:</label> <input
+              type="text" class="form-control" name="category"
+              th:text="${product.category}"/>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Nom :</label> <input
+              type="file" class="form-control" name="name"
+              th:text="${product.name}"/>
+      </div>
+
+
+      <button type="submit" class="btn btn-success">ENREGISTRER</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

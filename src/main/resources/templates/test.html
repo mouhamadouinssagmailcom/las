@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/temp.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+<div class="container mt-20">
+  <div class="card">
+    <div class="card-header">Liste des Achats</div>
+    <div class="card-body">
+
+      <div class="container">
+        <table class="table table-striped">
+          <tr>
+            <th>ID</th>
+            <th>Designation</th>
+            <th>Quantitychoosen</th>
+            <th>Prix</th>
+
+          </tr>
+          <tr th:each="product : ${products.entrySet()}">
+            <td th:text="${product.getKey().getDesign()}"></td>
+            <td th:text="${product.getValue()}"></td>
+            <td th:text="${product.getKey().getPrix()}"></td>
+
+            <td><a onclick="return confirm ('Are you sure to delete')"
+                   class="btn btn-danger"
+                   th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}">
+              <button type="button" class="btn btn-primary" th:text="#{cart.remove}"></button>
+            </a></td>
+          </tr>
+        </table>
+        <a th:href="@{'/cart/clear/'}" >
+          <button type="button" class="btn btn-info" ></button>
+        </a>
+
+        <br>
+        <div class="row">
+          <h3 th:text="#{cart.total} + ' ' + ${totalPrice}"></h3>">
+          <a th:href="@{'/cart/checkout'}" class="col-md-1">
+            <button type="button" class="btn btn-success" th:text="#{cart.checkout}"></button>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

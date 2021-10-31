@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <link th:rel="stylesheet"
+          th:href="@{webjars/bootstrap/4.1.3/css/bootstrap.min.css} "/>
+    <title>Insert title here</title>
+</head>
+<body>
+
+
+    <div class="container mt-5">
+        <div class="col-md-12">
+            <div class="card-header">FORMULAIRE D'ENREGISTREMENT DU
+                PATIENT
+            </div>
+            <div class="card-body">
+                <form th:action="@{saveproduit}" th:object="${product}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="control-label">ID:</label> <input type="text"
+                                                                        class="form-control" name="id"
+                                                                        th:value="${product.id} "/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Quantity:</label> <input type="text"
+                                                                              class="form-control" name="qty"
+                                                                              th:value="${product.qty}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Designation:</label> <input type="text"
+                                                                                 class="form-control" name="design"
+                                                                                 th:value="${product.design}"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label">Nom du marque:</label> <input
+                            type="text" class="form-control" name="marque"
+                            th:value="${product.marque}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Description:</label> <input type="text"
+                                                                                 class="form-control" name="desc"
+                                                                                 th:value="${product.desc}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Details products:</label> <input type="text"
+                                                                                      class="form-control" name="detail"
+                                                                                      th:value="${product.detail}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Prix:</label> <input
+                            type="text" class="form-control" name="prix"
+                            th:value="${product.prix}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Etat stock:</label> <input
+                            type="text" class="form-control" name="available"
+                            th:value="${product.available}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Type de category:</label> <input
+                            type="text" class="form-control" name="category"
+                            th:value="${product.category}"/>
+                    </div>
+                    <label class="control-label">Image</label>
+                    <input type="file" class="form-control" placeholder="Parcourir une image" id="imgView" name="myfile" accept="image/*" >
+                    <span style="color: red;" th:errors="${product.image}"></span>
+                    <div id="imgApercuDiv"><img id="imgApercu" src="#" alt="" /></div>
+
+
+
+
+                    <button type="submit" class="btn btn-success">ENREGISTRER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

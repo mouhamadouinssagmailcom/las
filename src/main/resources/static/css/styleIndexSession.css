@@ -1,0 +1,166 @@
+.main-content{
+	width: 100%;
+	background: #F0F0F0;
+}
+/******************************************************/
+	/* RECOMMANDÉ POUR VOUS */
+/******************************************************/
+.card{
+	background: white;
+}
+.card-header{
+	width: 97%;
+	background: transparent;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: black;
+	text-align: left;
+	font-size: 15px;
+}
+.card-header .carousel-control-next-icon{
+	margin-right: -83%;
+}
+.card-header .carousel-control-prev-icon{
+	margin-left: -85%;
+}    	
+.hero-container {
+	margin: auto;
+	display: flex;
+	background: white;
+}
+
+.main-container {
+	width: 400px;
+	height: 300px;
+}
+
+.poster-container {
+	width: 230px;
+	position: absolute;
+	top: 0;
+	left: 20px;
+	z-index: 5;
+}
+.poster-container img{
+	width: 250px;
+	height: 150px;	
+}
+.poster {
+	width: 100%;
+	box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+}
+
+.ticket-container {
+	background: #fff;
+	width: 270px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 5px;
+	position: absolute;
+	top: 20px;
+	box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.6);
+	opacity: 0;
+}
+
+.main-container:hover .ticket-container {
+	opacity: 1;
+	animation: bounceIn 1s linear;
+}
+
+@keyframes bounceIn {
+	0%,
+	20%,
+	40%,
+	60%,
+	80%,
+	to {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	20% {
+		-webkit-transform: scale3d(1.03, 1.03, 1.03);
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+	40% {
+		-webkit-transform: scale3d(0.9, 0.9, 0.9);
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: scale3d(1.01, 1.01, 1.01);
+		transform: scale3d(1.01, 1.01, 1.01);
+	}
+	80% {
+		-webkit-transform: scale3d(0.97, 0.97, 0.97);
+		transform: scale3d(0.97, 0.97, 0.97);
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+}
+
+ @keyframes bounce {
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+} 
+
+.ticket__content {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}
+
+.ticket__movie-title {
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+.ticket__movie-slogan {
+	color: #999;
+	font-size: 0.8rem;
+	margin-top: 5%;
+	margin-bottom: auto;
+}
+
+.ticket__current-price {
+	color: #69c982;
+	font-size: 1.4rem;
+	font-weight: bold;
+	margin-bottom: -1%;
+}
+
+.ticket__buy-btn {
+	cursor: pointer;
+	width: 100%;
+	background: #2f2f2f;
+	color: white;
+	padding: 15px 0;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-bottom: 5%;
+}
+/******************************************************/
+	/* RECOMMANDÉ POUR VOUS End */
+/******************************************************/    	

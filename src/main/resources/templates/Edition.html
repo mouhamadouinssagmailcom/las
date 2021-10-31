@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/produit.css">
+<link rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+
+<div class="container-fluid" id="container">
+
+  <div class="main">
+
+    <div class="detailsProduit">
+      <div class="recentOrders">
+        <form class="bg-light" action="#" th:action="@{/saveproduct}" th:object="${product}" method="post"
+              enctype="multipart/form-data">
+          <div class="contact-grids1 w3agile-6">
+            <div class="row">
+              <!-- Quantité -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Quantité</label>
+                <input type="text" class="form-control" placeholder="Quantité" name="qty"
+                       th:value="${product.qty}">
+                <span style="color: red;" th:errors="${product.qty}"></span>
+              </div>
+
+              <!-- Désignation -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Désignation</label>
+                <input type="text" class="form-control" placeholder="Désignation" name="design"
+                       th:value="${product.design}">
+                <span style="color: red;" th:errors="${product.design}"></span>
+              </div>
+
+              <!-- Marque -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Marque</label>
+                <input type="text" class="form-control" placeholder="Marque" name="marque"
+                       th:value="${product.marque}">
+                <span style="color: red;" th:errors="${product.marque}"></span>
+              </div>
+
+              <!-- Prix -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Prix</label>
+                <input type="text" class="form-control" placeholder="Prix" name="prix"
+                       th:value="${product.prix}">
+
+                <span style="color: red;" th:errors="${product.prix}"></span>
+              </div>
+
+              <!-- Description -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Description</label>
+                <textarea class="form-control" placeholder="Description" rows="3" cols="45" name="desc"
+                          th:text="${product.desc}"></textarea>
+                <span style="color: red;" th:errors="${product.desc}"></span>
+              </div>
+
+              <!-- Détails -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Détails</label>
+                <textarea class="form-control" placeholder="Détails" rows="3" cols="45" name="detail"
+                          th:text="${product.detail}"></textarea>
+                <span style="color: red;" th:errors="${product.detail}"></span>
+              </div>
+
+              <!-- Image -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Image</label>
+                <input type="file" class="form-control" placeholder="Parcourir une image" id="imgView"
+                       name="myfile" accept="image/*">
+                <span style="color: red;" th:errors="${product.image}"></span>
+                <div id="imgApercuDiv"><img id="imgApercu" src="#" alt=""/></div>
+              </div>
+
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label" for="category"> Catégorie </label>
+                <div class="col-md">
+                  <select th:value="${product.category}" id="category" name="category"
+                          class="form-control">
+                    <option value="" selected="selected" disabled="disabled">Choisir une catégorie
+                    </option>
+
+                    <option value="Ordinateurs" th:selected="(${product.category}=='Ordinateurs')">
+                      Ordinateurs
+                    </option>
+
+                    <option value="Imprimantes" th:selected="(${product.category}=='Imprimantes')">
+                      Imprimantes
+                    </option>
+
+                    <option value="Memoires" th:selected="(${product.category}=='Memoires')">
+                      Memoires
+                    </option>
+
+                    <option value="Cartes" th:selected="(${product.category}=='Cartes')">Cartes
+                    </option>
+
+                  </select>
+                </div>
+                <span style="color: red;" th:errors="${product.category}"></span>
+                <!-- category -->
+              </div>
+
+              <!-- Quantité -->
+              <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                <label class="col-form-label">Etat</label>
+                <input type="text" class="form-control" placeholder="Etat" name="available"
+                       th:value="${product.available}">
+                <span style="color: red;" th:errors="${product.available}"></span>
+              </div>
+
+            </div>
+            <br>
+            <div class="right-w3l col-md-6">
+              <input type="submit" id="submit" class="btn btn-primary form-control" value="Submit">
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  function toggleMenu() {
+    let toggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+    let main = document.querySelector('.main');
+    toggle.classList.toggle('active')
+    navigation.classList.toggle('active')
+    main.classList.toggle('active')
+  }
+
+  imgView.onchange = evt => {
+    const [file] = imgView.files
+    if (file) {
+      imgApercu.src = URL.createObjectURL(file)
+      let img = document.querySelector('#imgApercuDiv');
+      img.classList.toggle('active')
+    }
+  }
+</script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/3e9d5b9e3a.js"></script>
+</body>
+</html>

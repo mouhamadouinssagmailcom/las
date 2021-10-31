@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <title>Insert title here</title>
+
+    <link th:rel="stylesheet"
+          th:href="@{webjars/bootstrap/4.1.3/css/bootstrap.min.css} "/>
+    <script type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{adminisproducts}">Products</a>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+                                    href="#"> connexion</a></li>
+
+            <li class="nav-item"><a class="nav-link" th:href="@{products}">Catalogue</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Localisation</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Administration</a>
+            </li>
+
+
+            <li class="nav-item"><a th:href="@{cart}"><img id="cart" th:src="@{/img/cart.png}" width="100"></a>
+
+        </ul>
+    </div>
+
+</nav>
+<section layout:fragment="pagecontent"></section>
+
+<div class="container">
+    <div class="navbar navbar-default">
+        <footer></footer>
+        <div class="navbar navbar-default"></div>
+        <p>copyright2020byintellecttrue</p>
+    </div>
+
+</div>
+</body>
+</html>

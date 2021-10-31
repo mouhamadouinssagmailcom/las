@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="/css/style.css">
+    <link rel="stylesheet"  type="text/css" href="/css/produit.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="icon" th:href="@{/img/shopping-cart-309592.png}" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Tableau de bord | Smartchip Computers Inc</title>
+</head>
+<body>
+<div class="topbar" th:fragment="topbar">
+    <div class="toggle" onclick="toggleMenu();"><i class="togMenu fa fa-bars" aria-hidden="true"></i></div>
+    <div class="topbar" style="">
+        <div class="row" style="margin-top: 5%; margin-left: 50%; width: auto;">
+            <div class="col-md">
+                <img style="width: 30%; height: 30%; margin-left: 83% " src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt="">
+            </div>
+            <div class="col-md" style="margin-top: -1%">
+                <span style="font-weight: 500; font-size: 150%;" sec:authentication="name"></span>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function toggleMenu(){
+            let toggle = document.querySelector('.toggle');
+            let navigation = document.querySelector('.navigation');
+            let main = document.querySelector('.main');
+            toggle.classList.toggle('active')
+            navigation.classList.toggle('active')
+            main.classList.toggle('active')
+        }
+    </script>
+</div>
+</body>
+</html>

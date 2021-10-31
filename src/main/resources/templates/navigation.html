@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layoutNoSession :: head">
+</head>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="navigation" th:fragment="navigation">
+    <ul>
+        <li id="divLogo">
+            <a th:href="@{/dashbord}">
+                <span id="span" class="title"><h2> Smartchip</h2></span>
+                <small id="small">Computers Inc</small>
+                <img src="/img/shopping-cart-309592.png" id="logo" alt="" >
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/dashbord}">
+                <span class="icon"><i class="fa fa-tachometer-alt" aria-hidden="true"></i></span>
+                <span class="title">Tableau de Bord</span>
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/products}">
+                <span class="icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                <span class="title">Produits</span>
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/commande}">
+                <span class="icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                <span class="title">Commandes</span>
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/indexUser}">
+                <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                <span class="title">Employée</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                <span class="title">Setting</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                <span class="title">Help</span>
+            </a>
+        </li>
+        <li>
+            <form id="logoutForm" method="POST" th:action="@{/logout}">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <a href="#" onclick="document.forms['logoutForm'].submit()">
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title">Se deconnecter</span>
+                </a>
+            </form>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

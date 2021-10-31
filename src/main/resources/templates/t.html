@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/temp.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .card-thumbnail {
+    max-height: 250px;
+    overflow: hidden;
+  }
+</style>
+
+<body>
+<section class="bg-light py-4 my-5">
+
+  <div class="container">
+    <form method="get" th:action="@{products}">
+
+      <div class="row">
+        <div class="col-12" th:each="product: ${products}">
+          <h2 class="mb-3 text-danger">Bootstrap 5 Cards</h2>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card my-3">
+            <div class="card-thumbnail">
+              <img
+                      th:src="${'/ images /'+product.Name}" width="200"/>
+              <div class="card-body">
+                <h3 class="card-title"><a href="#" class="text-secondary">
+                  <strong
+                          th:text=${product.prix}></strong></a></h3>
+                <p class="card-text"><strong th:text=${product.design}></strong></p>
+                <a th:href="${'/cart/add/' + product.getId()}" class="btn btn-primary float-right"
+                   data-abc="true"> Buy now </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</body>
+</html>

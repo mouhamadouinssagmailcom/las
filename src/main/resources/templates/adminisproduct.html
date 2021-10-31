@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="myTemplate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/produit.css">
+<link rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<!-- CSS Personal -->
+<link rel="stylesheet" href="/css/Layout.css">
+<!-- Icons and Log -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<link rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<head>
+    <meta charset="utf-8">
+    <link th:rel="stylesheet"
+          th:href="@{webjars/bootstrap/4.1.3/css/bootstrap.min.css} "/>
+
+
+</head>
+<body>
+<div layout:fragment="pagecontent">
+    <div class="container mt-20">
+        <div class="card">
+            <div class="card-header">Liste des patients</div>
+            <div class="card-body">
+                <form method="get" th:action="@{adminisproducts}">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" name="keyword"
+                               th:value="${keyword}"/>
+                        <button class="btn btn-success">Search</button>
+                    </div>
+
+
+                </form>
+
+
+                <table class="table table-striped">
+                    <tr>
+                        <td>Image</td>
+                        <td>Quantité</td>
+                        <td>Designation</td>
+                        <td>Description</td>
+                        <td>Prix</td>
+                        <td>Action</td>
+                    </tr>
+                    <tr th:each="product: ${products}">
+                        <td th:inline="text">
+                            <div class="user">
+                                <img th:src="${'/images/'+product.name}">
+                            </div>
+                        </td>
+
+                        <td th:text="${product.qty}"></td>
+                        <td th:text="${product.design}"></td>
+                        <td th:text="${product.desc}"></td>
+                        <td th:text="${product.prix}"></td>
+                        <td>
+                            <a onclick="return confirm ('Etes vous Sûr?')"
+
+                               class="btn btn-danger"
+                               th:href="@{suppression(id=${product.id},keyword=${keyword},page=${currentPage},size=${size})}">Delete</a>
+                        </td>
+                        </td>
+                        <td><a class="btn btn-primary"
+                               th:href="@{Edition(id=${product.id})}">Editer</a></td>
+                    </tr>
+                </table>
+                <ul class="nav nav-pills">
+                    <li th:each="page, status:${pages}"><a
+                            th:class="${status.index==currentPage? 'btn btn-primary':'btn'
+						}"
+                            th:href="@{adminisproducts(page=${status.index},keyword=${keyword},size=${size})}"
+                            th:text="${status.index}"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
