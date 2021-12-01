@@ -14,4 +14,5 @@ public interface ShoppingCartService {
     Map<Product, Integer> productsInCart();
     BigDecimal totalPrice();
     void cartCheckout();
+    void DeleteOneProductToCart(Product product);
 }

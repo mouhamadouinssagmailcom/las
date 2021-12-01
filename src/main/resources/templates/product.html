@@ -8,16 +8,8 @@
 
 <div th:replace="fragments/header :: header"></div>
 
+<div class="container ">
 
-<div class="container">
-    <form method="get" th:action="@{products}">
-        <div class="form-group">
-            <label>Name:</label>
-            <input type="text" name="keyword"
-                   th:value="${keyword}"/>
-            <button class="btn btn-success">Search</button>
-        </div>
-    </form>
     <div class="row">
         <div class="col-md-4" th:each="product: ${products}">
             <figure class="card card-product-grid card-lg">
@@ -33,19 +25,26 @@
                         </div>
                     </div>
                 </figcaption>
-                <div class="bottom-wrap">
-                    <a th:href="${'/cart/add/' + product.getId()}" class="btn btn-primary float-right"
-                       data-abc="true"> Buy now </a>
-                    <div class="price-wrap"><span th:text=${product.prix} class="price h5"></span> <br> <small
-                            class="text-success">Free shipping</small></div>
+                <div class="card-footer">
+                    <p th:text="${product.getPrix()}"></p>
+                    <a th:href="@{details(id=${product.id})}" class="btn btn-lg btn-outline-info btn-block">J'Achete
+
+                    </a>
                 </div>
+
 
             </figure>
         </div>
     </div>
-</div>
+
+
+
+
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 
+
 </body>
+
 </html>
+
